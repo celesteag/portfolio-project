@@ -28,18 +28,17 @@ function Footer() {
         <div className="footer-section">
           <h4>Follow us</h4>
           <div className="footer-social">
-            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://instagram.com/" className="instagram" target="_blank" rel="noopener noreferrer">
               <FaInstagram />
             </a>
-            <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://facebook.com/" className="facebook" target="_blank" rel="noopener noreferrer">
               <FaFacebookF />
             </a>
-            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://twitter.com/" className="twitter" target="_blank" rel="noopener noreferrer">
               <FaTwitter />
             </a>
           </div>
         </div>
-
       </div>
 
       <div className="footer-bottom">

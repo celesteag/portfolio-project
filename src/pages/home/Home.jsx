@@ -5,7 +5,7 @@ import './Home.css'
 function Home() {
   return (
     <main className="home">
-      <h1 className="home-title">Popular Destinations</h1>
+      <h2 className="home-title">Popular Destinations</h2>
 
       <section className="destinations">
         {destinations.map((destination) => (

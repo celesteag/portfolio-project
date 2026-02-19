@@ -1,3 +1,5 @@
+import "../../styles/Legal.css";
+
 export default function Privacy() {
   return (
     <div className="legal-page">

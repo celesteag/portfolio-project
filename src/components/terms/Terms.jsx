@@ -1,3 +1,5 @@
+import "../../styles/Legal.css";
+
 export default function Terms() {
   return (
     <div className="legal-page">

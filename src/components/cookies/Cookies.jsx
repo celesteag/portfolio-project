@@ -1,3 +1,5 @@
+import "../../styles/Legal.css";
+
 export default function Cookies() {
   return (
     <div className="legal-page">
