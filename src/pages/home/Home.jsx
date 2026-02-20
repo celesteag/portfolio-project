@@ -20,5 +20,4 @@ function Home() {
     </main>
   )
 }
-
 export default Home

@@ -17,6 +17,11 @@
   padding: 3rem 2rem 2rem;
 }
 
+.footer-section {
+  flex: 1;
+  text-align: center;
+}
+
 .footer-section h4 {
   color: #ffffff;
   font-size: 1rem;
@@ -71,6 +76,7 @@
 .footer-social {
   display: flex;
   gap: 1rem;
+  justify-content: center;
 }
 
 .footer-social a {
@@ -83,9 +89,17 @@
   transform: translateY(-3px);
 }
 
-.footer-social a.instagram:hover { color: #e1306c; }
-.footer-social a.facebook:hover  { color: #1877f2; }
-.footer-social a.twitter:hover   { color: #1da1f2; }
+.footer-social a.instagram:hover {
+  color: #e1306c;
+}
+
+.footer-social a.facebook:hover {
+  color: #1877f2;
+}
+
+.footer-social a.twitter:hover {
+  color: #1da1f2;
+}
 
 .footer-bottom {
   text-align: center;
