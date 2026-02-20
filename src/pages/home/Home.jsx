@@ -5,7 +5,7 @@ import './Home.css';
 function Home() {
   return (
     <main className="home">
-      <h3 className="home-title">Nuestras Soluciones Tecnológicas</h3>
+      <h3 className="home-title">Skills</h3>
 
       <section className="destinations">
         {services.map((service) => (
