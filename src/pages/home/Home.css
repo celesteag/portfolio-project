@@ -1,48 +1,73 @@
 .home {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 32px 16px;
-  flex: 1;
+  padding: 80px 20px; 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .home-title {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 60px;
+  color: #ffffff;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
 }
 
 .destinations {
   display: flex;
-  gap: 24px;
   flex-wrap: wrap;
+  gap: 32px;
   justify-content: center;
+  width: 100%;
 }
 
-.destination-title {
-  text-align: center;
-  margin-bottom: 22px;
-  color: #333;
-  font-size: 1.2rem;
-  font-weight: bold;
+.service-card {
+  width: 340px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
 }
 
-.destination-card {
-  width: 300px;
-  border-radius: 12px;
-  transition: transform 0.25s ease;
-  cursor: pointer;
+.service-card:hover {
+  transform: translateY(-12px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(168, 85, 247, 0.5); 
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
-.destination-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+.service-title {
+  color: #ffffff;
+  padding: 20px 20px 10px 20px;
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.service-description {
+  color: #a1a1aa;
+  padding: 0 20px 24px 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
-
-  .destinations,
-  .contact-container,
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
+  .home-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+  
+  .service-card {
+    width: 100%;
+    max-width: 400px;
   }
 }

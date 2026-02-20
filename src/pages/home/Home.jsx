@@ -1,23 +1,24 @@
-import destinations from '../../data/destinations'
-import DestinationCard from '../../components/destination-card/DestinationCard'
-import './Home.css'
+import services from '../../data/skills'
+import ServiceCard from '../../components/service-card/ServiceCard' 
+import './Home.css';
 
 function Home() {
   return (
     <main className="home">
-      <h2 className="home-title">Popular Destinations</h2>
+      <h3 className="home-title">Nuestras Soluciones Tecnológicas</h3>
 
       <section className="destinations">
-        {destinations.map((destination) => (
-          <DestinationCard
-            key={destination.id}
-            title={destination.title}
-            image={destination.image}
-            description={destination.description}
+        {services.map((service) => (
+          <ServiceCard
+            key={service.id}
+            title={service.title}
+            image={service.image}
+            description={service.description}
           />
         ))}
       </section>
     </main>
   )
 }
-export default Home
+
+export default Home;
