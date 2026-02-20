@@ -1,5 +1,5 @@
 import './Footer.css';
-import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
+import { FaInstagram, FaFacebookF, FaTwitter, FaGithub } from "react-icons/fa";
 
 
 function Footer() {
@@ -34,8 +34,8 @@ function Footer() {
             <a href="https://facebook.com/" className="facebook" target="_blank" rel="noopener noreferrer">
               <FaFacebookF />
             </a>
-            <a href="https://twitter.com/" className="twitter" target="_blank" rel="noopener noreferrer">
-              <FaTwitter />
+            <a href="https://github.com/celesteag/travel-web" className="github" target="_blank" rel="noopener noreferrer">
+              <FaGithub />
             </a>
           </div>
         </div>
