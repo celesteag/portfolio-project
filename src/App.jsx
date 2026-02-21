@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
+import Project from './components/project/Project'
 import Privacy from "./components/privacy/Privacy";
 import Cookies from "./components/cookies/Cookies";
 import Terms from "./components/terms/Terms";
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Project />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="/privacy" element={<Privacy />} />
