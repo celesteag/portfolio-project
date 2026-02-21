@@ -1,11 +1,11 @@
 import projects from '../../data/projects';
 import './Project.css';
 import { db } from '../../firebase';
-function Projects() {
+function Project() {
     // const projectsRef = ref(db, 'projects');
     return (
         <main className="projects">
-            <h3 className="projects-title">Projects</h3>
+            <h4 className="projects-title">Projects</h4>
 
             <section className="projects-section">
                 {projects.map((project) => (
@@ -18,13 +18,11 @@ function Projects() {
                             ))}
                         </div>
                         <a className="project-link" href={project.repo} target="_blank" rel="noreferrer">
-                            Ver en GitHub →
+                            Ver en GitHub 
                         </a>
-                        {project.demo && (
-                            <a className="project-link demo" href={project.demo} target="_blank" rel="noreferrer">
-                                Ver demo →
-                            </a>
-                        )}
+                        {/* <a className="project-link demo" href={project.demo} target="_blank" rel="noreferrer">
+                            Ver demo 
+                        </a> */}
                     </div>
                 ))}
             </section>
@@ -32,4 +30,4 @@ function Projects() {
     )
 }
 
-export default Projects;
+export default Project;
