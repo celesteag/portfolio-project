@@ -3,8 +3,8 @@ const projects = [
     id: 0,
     title: "RobEurope",
     description: "Página web desarrollada con HTML, CSS y JavaScript que incluye diversas herramientas interactivas y un chatbot integrado conectado a Firebase para gestión de datos en tiempo real.",
-    repo: "https://github.com/celesteag/RobEurope",
-    demo: "https://celesteag.github.io/RobEurope/",
+    repo: "https://github.com/celesteag/TestProjectRob",
+    demo: "https://celesteag.github.io/TestProjectRob/",
     tags: ["HTML", "CSS", "JS", "Firebase"],
   },
   {
@@ -41,7 +41,7 @@ const projects = [
   },
   {
     id: 5,
-    title: "Historial Ionic",
+    title: "Historial cálculos Ionic",
     description: "App de sumas desarrollada con Angular e Ionic que guarda el historial de operaciones en una base de datos externa mediante una API REST con Neurelo.",
     repo: "https://github.com/celesteag/Ionic-calculator",
     demo: "https://celesteag.github.io/Ionic-calculator/",

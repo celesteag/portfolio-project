@@ -44,8 +44,8 @@ function Footer() {
 
       <div className="footer-bottom">
         © 2026 TravelWeb. All rights reserved.<br />
-        <NavLink to="/privacy">Privacy Policy</NavLink>
-        <NavLink to="/cookies"> Cookies Policy</NavLink>
+        <NavLink to="/privacy">Privacy Policy</NavLink> |
+        <NavLink to="/cookies"> Cookies Policy</NavLink> |
         <NavLink to="/terms"> Terms & Conditions</NavLink>
       </div>
     </footer>

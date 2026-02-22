@@ -20,9 +20,9 @@ function Project() {
                         <a className="project-link" href={project.repo} target="_blank" rel="noreferrer">
                             Ver en GitHub 
                         </a>
-                        {/* <a className="project-link demo" href={project.demo} target="_blank" rel="noreferrer">
+                        <a className="project-link demo" href={project.demo} target="_blank" rel="noreferrer">
                             Ver demo 
-                        </a> */}
+                        </a>
                     </div>
                 ))}
             </section>
