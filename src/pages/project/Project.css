@@ -100,6 +100,36 @@
   color: #c084fc;
 }
 
+.projects-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.filtro-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a1a1aa;
+  padding: 6px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.85rem;
+}
+
+.filtro-btn:hover {
+  border-color: rgba(168, 85, 247, 0.5);
+  color: #ffffff;
+}
+
+.filtro-btn.activo {
+  background: rgba(168, 85, 247, 0.2);
+  border-color: rgba(168, 85, 247, 0.5);
+  color: #c084fc;
+}
+
 @media (max-width: 768px) {
   .projects-title {
     font-size: 2rem;
