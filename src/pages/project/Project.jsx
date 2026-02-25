@@ -5,31 +5,24 @@ import './Project.css';
 
 function Project() {
 
-    // useState guarda los projects que vienen de Firebase
-    // empieza vacío [] y cuando llegan los datos se actualiza
     const [projects, setProjects] = useState([]);
 
-    // useState para el filtro, empieza en "Todos"
     const [filtro, setFiltro] = useState("Todos");
 
-    // useEffect se ejecuta una vez cuando el componente carga
     useEffect(() => {
 
-        // ref apunta a tu colección "projects" en Firebase
         const projectsRef = ref(db, 'projects');
 
-        // onValue escucha Firebase y cuando llegan datos ejecuta la función
         onValue(projectsRef, (snapshot) => {
-            const data = snapshot.val(); // datos de Firebase como objeto
+            const data = snapshot.val(); 
             if (data) {
-                const list = Object.values(data); // convierte el objeto en array
-                setProjects(list); // guarda los datos en el estado
+                const list = Object.values(data); 
+                setProjects(list); 
             }
         });
 
-    }, []); // [] = solo se ejecuta una vez al cargar
+    }, []); 
 
-    // Filtra los projects según el tag seleccionado
     const projectsFiltrados = filtro === "Todos"
         ? projects
         : projects.filter((p) => p.tags.includes(filtro));
