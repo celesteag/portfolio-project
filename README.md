@@ -1,10 +1,9 @@
-# 🌍 TravelWeb
+# Developer Portfolio
 
-A responsive travel website built with React and Vite. Browse destinations, learn about us, and get in touch.
-
+A responsive, interactive portfolio built with React and Vite, designed to showcase my technical skills and featured projects.
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js (v16+)
@@ -12,8 +11,8 @@ A responsive travel website built with React and Vite. Browse destinations, lear
 
 ### Installation
 ```bash
-git clone https://github.com/yourusername/travelweb.git
-cd travelweb
+git clone https://github.com/celesteag/portfolio.git
+cd portfolio-project
 npm install
 npm run dev
 ```
@@ -24,18 +23,21 @@ Open `http://localhost:5173`
 
 ## 📁 Project Structure
 ```
-travelweb/
+portfolio-project/
 ├── src/
 │   ├── components/
 │   │   ├── header/
 │   │   ├── footer/
-│   │   └── destination-card/
+|   |   ├── (cookies, privacy, terms)/
+│   │   └── service-card/
 │   ├── pages/
 │   │   ├── home/
 │   │   ├── about/
+|   |   ├── projects/
 │   │   └── contact/
 │   ├── data/
-│   │   └── destinations.js
+|   |   ├── skills.js
+│   │   └── projects.js
 │   ├── styles/
 │   │   └── global.css
 │   ├── App.jsx
@@ -48,8 +50,21 @@ travelweb/
 
 ## 🎨 Main Features
 
-### Home Page
-Grid of 12 travel destinations with images from Unsplash. Fully responsive with flexbox.
+## Home Page (Skills Showcase)
+The landing page features a dynamic grid of technical skills and services.
+* **Interactive Toggle (2.5% State Requirement):** Includes a "Show/Hide Skills" button that uses the `useState` hook to manage visibility. This allows users to collapse the skills section, demonstrating React's reactive state management.
+* **Service Cards:** Each skill is presented in a custom-styled card with high-quality imagery and descriptions.
+* **Responsive Layout:** Built with Flexbox to ensure a seamless experience across mobile, tablet, and desktop devices.
+
+### Projects Page
+A dedicated section showcasing my web development work with a focus on functionality and tech stack transparency.
+* **Project Filtering:** Includes a filtering system (All, React, Angular, JavaScript) to help users navigate different project categories.
+* **Detailed Project Cards:**
+    * **RobEurope:** A web page featuring interactive tools and a real-time chatbot connected to Firebase.
+    * **RESTful API:** A full-stack application built with Angular, Express, and MongoDB.
+    * **React Calculator:** A functional utility highlighting React component logic.
+* **Tech Tags:** Each project displays specific technology badges (HTML, CSS, JS, MongoDB, etc.) for quick identification.
+* **Direct Links:** Each card includes links to "View on GitHub" for source code and "View Demo" for the live application.
 
 ### About Page
 Info about TravelWeb's mission and what we offer.
@@ -95,6 +110,8 @@ Icons for social media, location, email, and phone.
 **Branches:**
 - `main` - Production
 - `develop` - Development
+- `feature/first-delivery` - Development
+- `feature/second-delivery` - Development
 ```bash
 git checkout develop
 git add .
@@ -121,13 +138,13 @@ Mobile-first with media queries:
 
 ## 📝 Design Inspiration
 
-Based on modern travel sites and Figma community templates.
+Based on the Interactive Portfolio Dark Theme Figma template for the UI/UX and color palette, while all featured projects and content are my own original work.
 
 ---
 
 ## 👤 Author
 
-**Your Name**
+**Celeste Arbelo García**
 
 - GitHub: [@celesteag](https://github.com/celesteag)
 - Email: celeste.ag.2c@gmail.com
@@ -154,5 +171,3 @@ Educational project - free to use.
 - info@devwebsolutions.com
 - +34 600 123 456
 - Calle Gran Vía 28, Madrid
-
-

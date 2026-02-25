@@ -1,6 +1,6 @@
+import { NavLink } from 'react-router-dom';
 import './Footer.css';
-import { FaInstagram, FaFacebookF, FaTwitter, FaGithub } from "react-icons/fa";
-
+import { FaInstagram, FaFacebookF, FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
 
 function Footer() {
   return (
@@ -14,9 +14,10 @@ function Footer() {
         <div className="footer-section">
           <h4>Links</h4>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="/about">About</NavLink></li>
+            <li><NavLink to="/contact">Contact</NavLink></li>
+            <li><NavLink to="/projects">Projects</NavLink></li>
             <li>
               <a href="https://github.com/celesteag/travel-web" target="_blank" rel="noopener noreferrer">
                 GitHub
@@ -31,8 +32,8 @@ function Footer() {
             <a href="https://instagram.com/" className="instagram" target="_blank" rel="noopener noreferrer">
               <FaInstagram />
             </a>
-            <a href="https://facebook.com/" className="facebook" target="_blank" rel="noopener noreferrer">
-              <FaFacebookF />
+            <a href="https://www.linkedin.com/in/celestearbelogarcia/" className="linkedin" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin />
             </a>
             <a href="https://github.com/celesteag/travel-web" className="github" target="_blank" rel="noopener noreferrer">
               <FaGithub />
@@ -43,9 +44,9 @@ function Footer() {
 
       <div className="footer-bottom">
         © 2026 TravelWeb. All rights reserved.<br />
-        <a href="/privacy">Privacy Policy</a> |
-        <a href="/cookies"> Cookies Policy</a> |
-        <a href="/terms"> Terms & Conditions</a>
+        <NavLink to="/privacy">Privacy Policy</NavLink> |
+        <NavLink to="/cookies"> Cookies Policy</NavLink> |
+        <NavLink to="/terms"> Terms & Conditions</NavLink>
       </div>
     </footer>
   )

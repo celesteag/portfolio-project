@@ -1,0 +1,60 @@
+const projects = [
+  {
+    id: 0,
+    title: "RobEurope",
+    description: "Página web desarrollada con HTML, CSS y JavaScript que incluye diversas herramientas interactivas y un chatbot integrado conectado a Firebase para gestión de datos en tiempo real.",
+    repo: "https://github.com/celesteag/TestProjectRob",
+    demo: "https://celesteag.github.io/TestProjectRob/",
+    tags: ["HTML", "CSS", "JS", "Firebase"],
+  },
+  {
+    id: 1,
+    title: "API RestFul",
+    description: "Aplicación FullStack desarrollada con Angular en el frontend y Express en el backend, que implementa un sistema completo de autenticación y operaciones CRUD conectado a una base de datos MongoDB mediante Mongoose.",
+    repo: "https://github.com/celesteag/Final-Project",
+    demo: "https://celesteag.github.io/Final-Project/",
+    tags: ["Angular", "Autenticación", "CRUD", "Express", "Mongoose", "MongoDB"],
+  },
+  {
+    id: 2,
+    title: "Calculadora React",
+    description: "Calculadora funcional desarrollada con React que permite realizar operaciones matemáticas básicas, con una interfaz limpia y responsive.",
+    repo: "https://github.com/celesteag/Calculator",
+    demo: "https://celesteag.github.io/Calculator/",
+    tags: ["React"],
+  },
+  {
+    id: 3,
+    title: "Final Branch Frontend",
+    description: "Aplicación frontend desarrollada con Angular que implementa un CRUD completo de vehículos con formularios reactivos, validaciones y sistema de routing. Conectada con 'Final Branch Backend' para gestionar la autenticación de usuarios y el acceso a los datos mediante llamadas a la API REST.",
+    repo: "https://github.com/celesteag/Test-FrontEnd",
+    demo: "https://celesteag.github.io/Test-FrontEnd/",
+    tags: ["Angular", "Routing", "Formulario", "Validaciones"],
+  },
+  {
+    id: 4,
+    title: "Final Branch Backend",
+    description: "API REST desarrollada con Express y Node.js que implementa un sistema completo de autenticación con registro de usuarios, login y verificación de tokens JWT mediante Jsonwebtoken. Conexión a base de datos con Mongoose, comunicación en tiempo real con Socket.io y tests automatizados.",
+    repo: "https://github.com/celesteag/PruebaFinalBack",
+    demo: "https://celesteag.github.io/PruebaFinalBack/",
+    tags: ["Express", "Socket", "Test", "Autenticación", "Jsonwebtoken", "Mongoose"],
+  },
+  {
+    id: 5,
+    title: "Historial cálculos Ionic",
+    description: "App de sumas desarrollada con Angular e Ionic que guarda el historial de operaciones en una base de datos externa mediante una API REST con Neurelo.",
+    repo: "https://github.com/celesteag/Ionic-calculator",
+    demo: "https://celesteag.github.io/Ionic-calculator/",
+    tags: ["Angular", "Ionic", "Neurelo"],
+  },
+  {
+    id: 6,
+    title: "IncidentApp",
+    description: "Aplicación de gestión de incidencias cuya estructura de datos está definida y validada mediante esquemas XML, DTD y XSD, garantizando la integridad y consistencia de los datos.",
+    repo: "https://github.com/celesteag/IncidentApp-XML",
+    demo: "https://celesteag.github.io/IncidentApp-XML/",
+    tags: ["XSD", "XML", "DTD"],
+  },
+];
+
+export default projects;

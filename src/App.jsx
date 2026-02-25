@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import Privacy from "./components/privacy/Privacy";
@@ -7,15 +7,17 @@ import Terms from "./components/terms/Terms";
 import Home from './pages/home/Home'
 import About from './pages/about/About'
 import Contact from './pages/contact/Contact'
+import Project from './pages/project/Project'
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Project />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="/privacy" element={<Privacy />} />
@@ -23,7 +25,7 @@ function App() {
         <Route path="/terms" element={<Terms />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
