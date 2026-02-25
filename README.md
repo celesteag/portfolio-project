@@ -171,5 +171,3 @@ Educational project - free to use.
 - info@devwebsolutions.com
 - +34 600 123 456
 - Calle Gran Vía 28, Madrid
-
-
