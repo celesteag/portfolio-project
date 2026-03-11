@@ -7,12 +7,12 @@ function Home() {
   const [isVisible, setIsVisible] = useState(true);
   return (
     <main className="home">
-      <h3 className="home-title">Skills</h3>
+      <h3 className="home-title">Habilidades</h3>
 
       <button
         className="toggle-button"
         onClick={() => setIsVisible(!isVisible)}>
-        {isVisible ? 'Ocultar Skills' : 'Mostrar Skills'}
+        {isVisible ? 'Ocultar Habilidades' : 'Mostrar Habilidades'}
       </button>
 
     {isVisible &&(

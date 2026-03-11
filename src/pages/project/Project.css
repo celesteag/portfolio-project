@@ -96,6 +96,22 @@
   border-radius: 999px;
 }
 
+.project-link.delete {
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.project-link.delete:hover {
+  color: #ffffff;
+  background: rgba(248, 113, 113, 0.2);
+  border-color: rgba(248, 113, 113, 0.6);
+}
+
 .project-link:hover {
   color: #c084fc;
 }

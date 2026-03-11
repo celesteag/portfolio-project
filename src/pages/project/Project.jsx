@@ -5,11 +5,8 @@ import './Project.css';
 
 function Project() {
 
-  // useState guarda los projects que vienen de Firebase
-  // empieza vacío [] y cuando llegan los datos se actualiza
   const [projects, setProjects] = useState([]);
 
-  // useState para el filtro, empieza en "Todos"
   const [filtro, setFiltro] = useState("Todos");
 
   const [newProject, setNewProject] = useState({
@@ -30,31 +27,35 @@ function Project() {
     setNewProject({ title: "", description: "", tags: "", repo: "", demo: "" });
   }
 
-  // useEffect se ejecuta una vez cuando el componente carga
+  const deleteProject = async (id) => {
+    const projectRef = ref(db, `projects/${id}`);
+    await remove(projectRef);
+  }
+
   useEffect(() => {
 
-    // ref apunta a la colección "projects" en Firebase
     const projectsRef = ref(db, 'projects');
 
-    // onValue escucha Firebase y cuando llegan datos ejecuta la función
     onValue(projectsRef, (snapshot) => {
-      const data = snapshot.val(); // datos de Firebase como objeto
+      const data = snapshot.val();
       if (data) {
-        const list = Object.values(data); // convierte el objeto en array
-        setProjects(list); // guarda los datos en el estado
+        const list = Object.entries(data).map(([id, value]) => ({
+          id,
+          ...value
+        }));
+        setProjects(list);
       }
     });
 
-  }, []); // [] = solo se ejecuta una vez al cargar
+  }, []);
 
-  // Filtra los projects según el tag seleccionado
   const projectsFiltrados = filtro === "Todos"
     ? projects
     : projects.filter((p) => p.tags.toLowerCase().includes(filtro.toLowerCase()));
 
   return (
     <main className="projects">
-      <h4 className="projects-title">Projects</h4>
+      <h4 className="projects-title">Proyectos</h4>
 
       <div className="projects-filtros">
         <button className={`filtro-btn ${filtro === "Todos" ? "activo" : ""}`} onClick={() => setFiltro("Todos")}>
@@ -81,6 +82,7 @@ function Project() {
                 <span key={tag} className="project-tag">{tag.trim()}</span>
               ))}
             </div>
+
             <div className="project-links">
               <a className="project-link" href={project.repo} target="_blank" rel="noreferrer">
                 Ver en GitHub
@@ -88,6 +90,9 @@ function Project() {
               <a className="project-link demo" href={project.demo} target="_blank" rel="noreferrer">
                 Ver demo
               </a>
+              <button className='project-link delete' onClick={() => deleteProject(project.id)}>
+                Eliminar
+              </button>
             </div>
           </div>
         ))}

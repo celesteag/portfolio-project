@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import './Header.css'
-import logo from '/src/logo/travel-web-logo.png'
+import logo from '/src/logo/my-space-new-logo.png'
 
 function Header() {
   return (
@@ -14,7 +14,7 @@ function Header() {
         </nav>
 
         <NavLink to="/" className="header-logo">
-          <img src={logo} alt="TravelWeb logo" />
+          <img src={logo} alt="MySpace logo" />
         </NavLink>
 
         <nav className="header-nav right">
