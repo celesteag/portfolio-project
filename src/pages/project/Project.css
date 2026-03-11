@@ -130,6 +130,79 @@
   color: #c084fc;
 }
 
+.add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 25px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  backdrop-filter: blur(12px);
+}
+
+.add-form input {
+  flex: 1;
+  min-width: 180px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 10px 16px;
+  color: #ffffff;
+  font-size: 0.85rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.add-form input::placeholder {
+  color: #a1a1aa;
+}
+
+.add-form input,
+.add-form input:focus,
+.add-form input:hover,
+.add-form input:active {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.add-form button {
+  background: rgba(168, 85, 247, 0.2);
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  color: #c084fc;
+  padding: 8px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.add-form button:hover {
+  background: rgba(168, 85, 247, 0.35);
+  color: #ffffff;
+}
+
+.toggle-button {
+  background: rgba(168, 85, 247, 0.2);
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  color: #c084fc;
+  padding: 8px 20px;
+  margin: 35px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.toggle-button:hover {
+  background: rgba(168, 85, 247, 0.3);
+  color: #ffffff;
+}
+
 @media (max-width: 768px) {
   .projects-title {
     font-size: 2rem;
