@@ -106,10 +106,32 @@
   transition: all 0.2s;
 }
 
+.project-link.edit {
+  color: #7c9cbf;
+  border: 1px solid #849ebb;
+  background: transparent;
+  padding: 4px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.project-link.edit:hover {
+  background: #2e4f75;
+  color: #1a1a2e;
+}
+
 .project-link.delete:hover {
   color: #ffffff;
   background: rgba(248, 113, 113, 0.2);
   border-color: rgba(248, 113, 113, 0.6);
+}
+
+.project-link.demo:hover {
+  color: #ffffff;
+  background: rgba(168, 85, 247, 0.2);
+  border-color: rgba(168, 85, 247, 0.6);
 }
 
 .project-link:hover {
@@ -200,6 +222,33 @@
 .add-form button:hover {
   background: rgba(168, 85, 247, 0.35);
   color: #ffffff;
+}
+
+.form-error {
+  font-size: 12px;
+  color: #c0392b;
+  margin: -8px 0 4px 2px;
+}
+
+.confirm-delete {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #888;
+  background: #f16262;
+  border: 1px solid #171616;
+  border-radius: 6px;
+  padding: 3px 10px;
+}
+
+.confirm-delete button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0;
 }
 
 .toggle-button {

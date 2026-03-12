@@ -7,8 +7,8 @@ function Footer() {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-section">
-          <h4>TravelWeb</h4>
-          <p>Discover the world with us.</p>
+          <h4>MySpace</h4>
+          <p>Discover my projects and skills.</p>
         </div>
 
         <div className="footer-section">
@@ -43,7 +43,7 @@ function Footer() {
       </div>
 
       <div className="footer-bottom">
-        © 2026 TravelWeb. All rights reserved.<br />
+        © 2026 MyPortfolio. All rights reserved.<br />
         <NavLink to="/privacy">Privacy Policy</NavLink> |
         <NavLink to="/cookies"> Cookies Policy</NavLink> |
         <NavLink to="/terms"> Terms & Conditions</NavLink>

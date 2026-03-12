@@ -1,6 +1,15 @@
 # Developer Portfolio
 
 A responsive, interactive portfolio built with React and Vite, designed to showcase my technical skills and featured projects.
+
+## Demo
+[View project on Firebase](https://portfolio-project-lnd.web.app)
+
+## RSS Feed
+The news page includes a link to RSS feeds on web development and technology.
+[View RSS file](https://dev.to/feed)
+
+[RSS Feed](./rss-screenshot.png)
 ---
 
 ## Getting Started
@@ -169,5 +178,4 @@ Educational project - free to use.
 ## Contact
 
 - info@devwebsolutions.com
-- +34 600 123 456
-- Calle Gran Vía 28, Madrid
+- Las Palmas
