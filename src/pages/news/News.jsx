@@ -9,13 +9,9 @@ function News() {
                 Mantente al día con las últimas noticias de tecnología y desarrollo web.
             </p>
 
-
-            <a href="https://dev.to/feed"
-                target="_blank"
-                rel="noreferrer"
-                className="rss-link">
-                Ver fichero RSS
-            </a>
+            <p className="rss-url">
+                RSS Feed: <code>https://dev.to/feed</code>
+            </p>
         </main>
     );
 }

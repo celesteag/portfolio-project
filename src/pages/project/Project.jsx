@@ -124,25 +124,16 @@ function Project() {
               </a>
               {project.demo && (
                 <a className="project-link demo" href={project.demo} target="_blank" rel="noreferrer">
-                  Ver demo
+                  Demo
                 </a>
               )}
               <button className="project-link edit" onClick={() => startEdit(project)}>
                 Editar
               </button>
 
-              {confirmDelete === project.id ? (
-                <span className="confirm-delete">
-                  ¿Seguro?{" "}
-                  <button onClick={() => deleteProject(project.id)}>Sí</button>
-                  {" / "}
-                  <button onClick={() => setConfirmDelete(null)}>No</button>
-                </span>
-              ) : (
-                <button className="project-link delete" onClick={() => setConfirmDelete(project.id)}>
-                  Eliminar
-                </button>
-              )}
+              <button className="project-link delete" onClick={() => setConfirmDelete(project.id)}>
+                Eliminar
+              </button>
             </div>
           </div>
         ))}
@@ -197,6 +188,18 @@ function Project() {
           ) : (
             <button onClick={addProject}>Añadir Proyecto</button>
           )}
+        </div>
+      )}
+
+      {confirmDelete && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <p>¿Seguro que quieres eliminar este proyecto?</p>
+            <div className="modal-buttons">
+              <button onClick={() => deleteProject(confirmDelete)}>Eliminar</button>
+              <button onClick={() => setConfirmDelete(null)}>Cancelar</button>
+            </div>
+          </div>
         </div>
       )}
     </main>

@@ -27,7 +27,7 @@ function Footer() {
         </div>
 
         <div className="footer-section">
-          <h4>Follow us</h4>
+          <h4>Follow me</h4>
           <div className="footer-social">
             <a href="https://instagram.com/" className="instagram" target="_blank" rel="noopener noreferrer">
               <FaInstagram />
