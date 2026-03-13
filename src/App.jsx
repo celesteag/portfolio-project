@@ -9,6 +9,7 @@ import About from './pages/about/About'
 import Contact from './pages/contact/Contact'
 import Project from './pages/project/Project'
 import News from './pages/news/News'
+import NewsItem from './components/news-item/NewsItem';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/cookies" element={<Cookies />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/news" element={<News />} />
+        <Route path="/news/:id" element={<News />} />
       </Routes>
       <Footer />
     </HashRouter>

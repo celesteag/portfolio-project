@@ -101,6 +101,10 @@
   color: white;
 }
 
+.footer-social a.rss:hover {
+  color: orange;
+}
+
 .footer-bottom {
   text-align: center;
   padding: 1.2rem 2rem;

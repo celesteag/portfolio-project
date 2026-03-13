@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import './Footer.css';
-import { FaInstagram, FaFacebookF, FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaFacebookF, FaTwitter, FaGithub, FaLinkedin, FaRss } from "react-icons/fa";
 
 function Footer() {
   return (
@@ -18,8 +18,9 @@ function Footer() {
             <li><NavLink to="/about">About</NavLink></li>
             <li><NavLink to="/contact">Contact</NavLink></li>
             <li><NavLink to="/projects">Projects</NavLink></li>
+            <li><NavLink to="/news">News</NavLink></li>
             <li>
-              <a href="https://github.com/celesteag/travel-web" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/celesteag/portfolio-project" target="_blank" rel="noopener noreferrer">
                 GitHub
               </a>
             </li>
@@ -35,11 +36,11 @@ function Footer() {
             <a href="https://www.linkedin.com/in/celestearbelogarcia/" className="linkedin" target="_blank" rel="noopener noreferrer">
               <FaLinkedin />
             </a>
-            <a href="https://github.com/celesteag/travel-web" className="github" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/celesteag/portfolio-project" className="github" target="_blank" rel="noopener noreferrer">
               <FaGithub />
             </a>
-            <a href="/rss/tech-news.xml" target="_blank" rel="noopener noreferrer">
-              <img src="/img/rss-ico.png" alt="RSS Feed" />
+            <a href="/rss/tech-news.xml" className="rss" target="_blank" rel="noopener noreferrer">
+              <FaRss />
             </a>
           </div>
         </div>

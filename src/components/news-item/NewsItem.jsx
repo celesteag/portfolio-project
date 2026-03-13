@@ -1,7 +1,8 @@
 
 function NewsItem({ newsId, title, description, pubDate, link, category }) {
     return (
-        <article className="news-item" data-news-id={newsId}>
+        <article className="news-item" data-news-id={newsId} onClick={() => navigate(`/news/${newsId}`)}
+            style={{ cursor: 'pointer' }}>
             <div className="news-header">
                 <span className="news-category" data-category={category}>
                     {category}
