@@ -7,7 +7,7 @@ A responsive, interactive portfolio built with React and Vite, designed to showc
 
 ## RSS Feed
 The news page includes a link to RSS feeds on web development and technology.
-[View RSS file](https://dev.to/feed)
+[View RSS file](https://portfolio-project-lnd.web.app/rss/tech-news.xml)
 
 [RSS Feed](./rss-screenshot.png)
 ---

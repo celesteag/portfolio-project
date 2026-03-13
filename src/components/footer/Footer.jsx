@@ -38,6 +38,9 @@ function Footer() {
             <a href="https://github.com/celesteag/travel-web" className="github" target="_blank" rel="noopener noreferrer">
               <FaGithub />
             </a>
+            <a href="/rss/tech-news.xml" target="_blank" rel="noopener noreferrer">
+              <img src="/img/rss-ico.png" alt="RSS Feed" />
+            </a>
           </div>
         </div>
       </div>

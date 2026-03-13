@@ -1,19 +1,19 @@
 import './News.css';
+import news from "../../data/news";
+import NewsItem from "../../components/news-item/NewsItem";
 
 function News() {
     return (
-        <main className="news">
-            <h4 className="news-title">Noticias Tech</h4>
+        <div className="news">
+            {news.map((item, index) => {
+                return < NewsItem key={index} newsId={index} title={item.title} description={item.description} pubDate={item.pubDate}
+                    link={item.link}
+                    category={item.category} />
+            })
+            }
 
-            <p className="news-description">
-                Mantente al día con las últimas noticias de tecnología y desarrollo web.
-            </p>
-
-            <p className="rss-url">
-                RSS Feed: <code>https://dev.to/feed</code>
-            </p>
-        </main>
-    );
+        </div>
+    )
 }
 
 export default News;

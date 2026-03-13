@@ -1,0 +1,64 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    version="2.0">
+    <channel>
+        <title>Comunidad DEV</title>
+        <description>Las noticias más recientes de la Comunidad DEV.</description>
+        <link>https://portfolio-project-lnd.web.app</link>
+        <language>es</language>
+        
+        <item>
+            <id>1</id>
+            <title>Construcción de una API de Web Scraping de Pago por Solicitud con Apify Actors, FastAPI y el Protocolo x402</title>
+            <description>Aprende a crear una API de web scraping escalable utilizando Apify Actors, FastAPI y el innovador protocolo x402.</description>
+            <pubDate>Vie, 13 Mar 2026 15:08:43</pubDate>
+            <link>https://portfolio-project-lnd.web.app/#/news/1</link>
+            <category>Python</category>
+        </item>
+        
+        <item>
+            <id>2</id>
+            <title>Guía Completa de Desarrollo Web con React y Vite</title>
+            <description>Descubre cómo construir aplicaciones web modernas y rápidas utilizando React junto con Vite.</description>
+            <pubDate>Jue, 12 Mar 2026 10:30:00</pubDate>
+            <link>https://portfolio-project-lnd.web.app/#/news/2</link>
+            <category>JavaScript</category>
+        </item>
+        
+        <item>
+            <id>3</id>
+            <title>Introducción a la Inteligencia Artificial y Machine Learning</title>
+            <description>Explora los fundamentos de la inteligencia artificial y aplicaciones prácticas de machine learning.</description>
+            <pubDate>Mié, 11 Mar 2026 14:45:20</pubDate>
+            <link>https://portfolio-project-lnd.web.app/#/news/3</link>
+            <category>IA</category>
+        </item>
+        
+        <item>
+            <id>4</id>
+            <title>Optimización de Rendimiento en Aplicaciones Node.js</title>
+            <description>Técnicas avanzadas para mejorar el rendimiento de tus aplicaciones Node.js.</description>
+            <pubDate>Mar, 10 Mar 2026 09:15:33</pubDate>
+            <link>https://portfolio-project-lnd.web.app/#/news/4</link>
+            <category>Backend</category>
+        </item>
+        
+        <item>
+            <id>5</id>
+            <title>Diseño Responsive con CSS Grid y Flexbox</title>
+            <description>Domina las técnicas modernas de diseño web utilizando CSS Grid y Flexbox.</description>
+            <pubDate>Lun, 09 Mar 2026 16:20:10</pubDate>
+            <link>https://portfolio-project-lnd.web.app/#/news/5</link>
+            <category>CSS</category>
+        </item>
+        
+        <item>
+            <id>6</id>
+            <title>Seguridad Web: Protege tu Aplicación contra Vulnerabilidades Comunes</title>
+            <description>Aprende a identificar y prevenir las vulnerabilidades de seguridad más comunes.</description>
+            <pubDate>Dom, 08 Mar 2026 11:00:00</pubDate>
+            <link>https://portfolio-project-lnd.web.app/#/news/6</link>
+            <category>Seguridad</category>
+        </item>
+        
+    </channel>
+</rss>

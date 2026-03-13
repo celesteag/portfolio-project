@@ -27,7 +27,6 @@ function Project() {
     });
   }, []);
 
-  // --- Validación ---
   const validate = () => {
     const newErrors = {};
     if (!newProject.title.trim()) newErrors.title = "El título es obligatorio";
@@ -37,7 +36,6 @@ function Project() {
     return Object.keys(newErrors).length === 0;
   };
 
-  // --- Añadir ---
   const addProject = async () => {
     if (!validate()) return;
     const projectsRef = ref(db, 'projects');
@@ -47,7 +45,6 @@ function Project() {
     setIsVisible(false);
   };
 
-  // --- Editar: abre formulario con datos del proyecto ---
   const startEdit = (project) => {
     setEditingId(project.id);
     setNewProject({
@@ -61,7 +58,6 @@ function Project() {
     setIsVisible(true);
   };
 
-  // --- Guardar cambios ---
   const updateProject = async () => {
     if (!validate()) return;
     const projectRef = ref(db, `projects/${editingId}`);
@@ -72,7 +68,6 @@ function Project() {
     setIsVisible(false);
   };
 
-  // --- Cancelar edición ---
   const cancelEdit = () => {
     setEditingId(null);
     setNewProject(emptyForm);
@@ -80,7 +75,6 @@ function Project() {
     setIsVisible(false);
   };
 
-  // --- Eliminar con confirmación inline ---
   const deleteProject = async (id) => {
     const projectRef = ref(db, `projects/${id}`);
     await remove(projectRef);
