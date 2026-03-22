@@ -1,8 +1,18 @@
 import { NavLink } from 'react-router-dom'
+import { signOut } from 'firebase/auth'
+import { auth } from '../../firebase'
+import { useAuth } from '../../context/AuthContext'
 import './Header.css'
 import logo from '/src/logo/my-space-new-logo.png'
 
 function Header() {
+
+  const { user } = useAuth()
+
+  const handleLogout = () => {
+    signOut(auth)
+  }
+
   return (
     <header className="header">
       <div className="header-container">
@@ -20,6 +30,11 @@ function Header() {
 
         <nav className="header-nav right">
           <NavLink to="/contact" className="nav-link">Contact</NavLink>
+          {user && (
+            <button onClick={handleLogout} className="logout-btn">
+              Logout
+            </button>
+          )}
         </nav>
 
       </div>

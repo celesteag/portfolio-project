@@ -3,6 +3,7 @@ import { db } from '../../firebase';
 import { ref, onValue, push, remove, update } from 'firebase/database';
 import './Project.css';
 
+
 const emptyForm = { title: "", description: "", tags: "", repo: "", demo: "" };
 
 function Project() {
@@ -84,6 +85,18 @@ function Project() {
   const projectsFiltrados = filtro === "Todos"
     ? projects
     : projects.filter((p) => p.tags.toLowerCase().includes(filtro.toLowerCase()));
+
+  const techCount = {};
+  projects.forEach((p) => {
+    if (!p.tags) return;
+    p.tags.split(",").forEach((tag) => {
+      const t = tag.trim();
+      techCount[t] = (techCount[t] || 0) + 1;
+    });
+  });
+
+  const techData = Object.entries(techCount);
+  const maxCount = Math.max(...techData.map(([, c]) => c));
 
   return (
     <main className="projects">
