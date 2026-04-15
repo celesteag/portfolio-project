@@ -1,7 +1,18 @@
 import { useState, useEffect } from 'react';
-import { db } from '../../firebase';
-import { ref, onValue, push, remove, update } from 'firebase/database';
 import './Project.css';
+
+import { ref, onValue, push, update, remove } from "firebase/database";
+import { db } from '../../firebase';
+
+import { getProjectsOnce, saveProject } from '../../services/dataService';
+
+import { parseJSON } from '../../utils/parseJSON';
+import { parseCSV } from '../../utils/parseCSV';
+import { parseXML } from '../../utils/parseXML';
+
+import { exportJSON } from '../../utils/exportJSON';
+import { exportCSV } from '../../utils/exportCSV';
+import { exportXML } from '../../utils/exportXML';
 
 
 const emptyForm = { title: "", description: "", tags: "", repo: "", demo: "" };
@@ -16,16 +27,22 @@ function Project() {
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    const projectsRef = ref(db, 'projects');
-    onValue(projectsRef, (snapshot) => {
+    const projectsRef = ref(db, "projects");
+
+    const unsubscribe = onValue(projectsRef, (snapshot) => {
       const data = snapshot.val();
-      if (data) {
-        const list = Object.entries(data).map(([id, value]) => ({ id, ...value }));
-        setProjects(list);
-      } else {
+      if (!data) {
         setProjects([]);
+        return;
       }
+      const list = Object.keys(data).map(key => ({
+        id: key,
+        ...data[key]
+      }));
+      setProjects(list);
     });
+
+    return () => unsubscribe();
   }, []);
 
   const validate = () => {
@@ -39,8 +56,7 @@ function Project() {
 
   const addProject = async () => {
     if (!validate()) return;
-    const projectsRef = ref(db, 'projects');
-    await push(projectsRef, newProject);
+    await saveProject(newProject);
     setNewProject(emptyForm);
     setErrors({});
     setIsVisible(false);
@@ -82,25 +98,77 @@ function Project() {
     setConfirmDelete(null);
   };
 
+  const handleImport = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = async (event) => {
+      const text = event.target.result;
+      let data = [];
+
+      if (file.name.endsWith(".json")) data = parseJSON(text);
+      if (file.name.endsWith(".csv")) data = parseCSV(text);
+      if (file.name.endsWith(".xml")) data = parseXML(text);
+
+      for (let project of data) {
+        await saveProject(project);
+      }
+    };
+
+    reader.readAsText(file);
+  };
+
+  const downloadFile = (content, type, filename) => {
+    const blob = new Blob([content], { type });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    a.click();
+  };
+
+  const handleExport = async (format) => {
+    const data = await getProjectsOnce();
+
+    let content;
+
+    if (format === "json") {
+      content = exportJSON(data);
+      downloadFile(content, "application/json", "projects.json");
+    }
+
+    if (format === "csv") {
+      content = exportCSV(data);
+      downloadFile(content, "text/csv", "projects.csv");
+    }
+
+    if (format === "xml") {
+      content = exportXML(data);
+      downloadFile(content, "text/xml", "projects.xml");
+    }
+  };
+
   const projectsFiltrados = filtro === "Todos"
     ? projects
     : projects.filter((p) => p.tags.toLowerCase().includes(filtro.toLowerCase()));
 
-  const techCount = {};
-  projects.forEach((p) => {
-    if (!p.tags) return;
-    p.tags.split(",").forEach((tag) => {
-      const t = tag.trim();
-      techCount[t] = (techCount[t] || 0) + 1;
-    });
-  });
-
-  const techData = Object.entries(techCount);
-  const maxCount = Math.max(...techData.map(([, c]) => c));
-
   return (
     <main className="projects">
       <h4 className="projects-title">Proyectos</h4>
+
+      <div className="import-export-container">
+        <label className="custom-file-upload">
+          <input type="file" onChange={handleImport} />
+          Seleccionar archivo
+        </label>
+
+        <div className="export-buttons">
+          <button className="filtro-btn" onClick={() => handleExport("json")}>Export JSON</button>
+          <button className="filtro-btn" onClick={() => handleExport("csv")}>Export CSV</button>
+          <button className="filtro-btn" onClick={() => handleExport("xml")}>Export XML</button>
+        </div>
+      </div>
 
       <div className="projects-filtros">
         {["Todos", "React", "Angular", "JS"].map((f) => (
@@ -119,6 +187,7 @@ function Project() {
           <div key={project.id} className="project-card">
             <h4 className="project-title">{project.title}</h4>
             <p className="project-description">{project.description}</p>
+
             <div className="project-tags">
               {project.tags.split(',').map((tag) => (
                 <span key={tag} className="project-tag">{tag.trim()}</span>
@@ -126,21 +195,14 @@ function Project() {
             </div>
 
             <div className="project-links">
-              <a className="project-link" href={project.repo} target="_blank" rel="noreferrer">
-                Ver en GitHub
-              </a>
-              {project.demo && (
-                <a className="project-link demo" href={project.demo} target="_blank" rel="noreferrer">
-                  Demo
-                </a>
-              )}
-              <button className="project-link edit" onClick={() => startEdit(project)}>
-                Editar
-              </button>
+              <a href={project.repo} className="project-link" target="_blank" rel="noreferrer">GitHub</a>
 
-              <button className="project-link delete" onClick={() => setConfirmDelete(project.id)}>
-                Eliminar
-              </button>
+              {project.demo && (
+                <a href={project.demo} className="project-link demo" target="_blank" rel="noreferrer">Demo</a>
+              )}
+
+              <button className="project-link edit" onClick={() => startEdit(project)}>Editar</button>
+              <button className="project-link delete" onClick={() => setConfirmDelete(project.id)}>Eliminar</button>
             </div>
           </div>
         ))}
@@ -156,31 +218,32 @@ function Project() {
       {isVisible && (
         <div className="add-form">
           <input
-            placeholder="Título *"
+            placeholder="Título"
             value={newProject.title}
             onChange={(e) => setNewProject({ ...newProject, title: e.target.value })}
           />
-          {errors.title && <span className="form-error">{errors.title}</span>}
+          {errors.title && <span>{errors.title}</span>}
 
           <input
-            placeholder="Descripción *"
+            placeholder="Descripción"
             value={newProject.description}
             onChange={(e) => setNewProject({ ...newProject, description: e.target.value })}
           />
-          {errors.description && <span className="form-error">{errors.description}</span>}
+          {errors.description && <span>{errors.description}</span>}
 
           <input
-            placeholder="Tags (ej: React, Firebase, JavaScript) *"
+            placeholder="Tags"
             value={newProject.tags}
             onChange={(e) => setNewProject({ ...newProject, tags: e.target.value })}
           />
-          {errors.tags && <span className="form-error">{errors.tags}</span>}
+          {errors.tags && <span>{errors.tags}</span>}
 
           <input
-            placeholder="Repositorio GitHub"
+            placeholder="Repo"
             value={newProject.repo}
             onChange={(e) => setNewProject({ ...newProject, repo: e.target.value })}
           />
+
           <input
             placeholder="Demo"
             value={newProject.demo}
@@ -189,22 +252,21 @@ function Project() {
 
           {editingId ? (
             <>
-              <button onClick={updateProject}>Guardar cambios</button>
+              <button onClick={updateProject}>Guardar</button>
               <button onClick={cancelEdit}>Cancelar</button>
             </>
           ) : (
-            <button onClick={addProject}>Añadir Proyecto</button>
+            <button onClick={addProject}>Añadir</button>
           )}
         </div>
       )}
-
       {confirmDelete && (
         <div className="modal-overlay">
           <div className="modal">
             <p>¿Seguro que quieres eliminar este proyecto?</p>
             <div className="modal-buttons">
-              <button onClick={() => deleteProject(confirmDelete)}>Eliminar</button>
-              <button onClick={() => setConfirmDelete(null)}>Cancelar</button>
+              <button className="project-link delete" onClick={() => deleteProject(confirmDelete)}>Eliminar</button>
+              <button className="project-link edit" onClick={() => setConfirmDelete(null)}>Cancelar</button>
             </div>
           </div>
         </div>

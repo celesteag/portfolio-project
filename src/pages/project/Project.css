@@ -297,6 +297,46 @@
   gap: 10px;
 }
 
+.import-export-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.export-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.custom-file-upload {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px dashed rgba(168, 85, 247, 0.4);
+  color: #a1a1aa;
+  padding: 8px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.custom-file-upload:hover {
+  background: rgba(168, 85, 247, 0.1);
+  border-color: #a855f7;
+  color: #fff;
+}
+
+.custom-file-upload input[type="file"] {
+  display: none;
+}
+
+.project-links button {
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+
 @media (max-width: 768px) {
   .projects-title {
     font-size: 2rem;
