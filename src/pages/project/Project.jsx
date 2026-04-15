@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import './Project.css';
 
+import { auth } from '../../firebase';
 import { ref, onValue, push, update, remove } from "firebase/database";
 import { db } from '../../firebase';
 
-import { getProjectsOnce, saveProject } from '../../services/dataService';
+import { getProjectsOnce, saveProjectService, updateProjectService, deleteProjectService } from '../../services/dataService';
 
 import { parseJSON } from '../../utils/parseJSON';
 import { parseCSV } from '../../utils/parseCSV';
@@ -56,7 +57,7 @@ function Project() {
 
   const addProject = async () => {
     if (!validate()) return;
-    await saveProject(newProject);
+    await saveProjectService(newProject);
     setNewProject(emptyForm);
     setErrors({});
     setIsVisible(false);
@@ -77,8 +78,9 @@ function Project() {
 
   const updateProject = async () => {
     if (!validate()) return;
-    const projectRef = ref(db, `projects/${editingId}`);
-    await update(projectRef, newProject);
+
+    await updateProjectService(editingId, newProject);
+
     setEditingId(null);
     setNewProject(emptyForm);
     setErrors({});
@@ -93,26 +95,37 @@ function Project() {
   };
 
   const deleteProject = async (id) => {
-    const projectRef = ref(db, `projects/${id}`);
-    await remove(projectRef);
+    await deleteProjectService(id);
+
     setConfirmDelete(null);
   };
 
   const handleImport = (e) => {
     const file = e.target.files[0];
+    if (!file) return;
+
+    console.log("1. Archivo seleccionado:", file.name);
+
     const reader = new FileReader();
 
     reader.onload = async (event) => {
       const text = event.target.result;
+      console.log("2. Texto leído del archivo:", text.substring(0, 50) + "...");
+
       let data = [];
 
       if (file.name.endsWith(".json")) data = parseJSON(text);
       if (file.name.endsWith(".csv")) data = parseCSV(text);
       if (file.name.endsWith(".xml")) data = parseXML(text);
 
+      console.log("3. Datos convertidos a objetos tibur:", data);
+
       for (let project of data) {
-        await saveProject(project);
+        console.log("Proyecto actual tibur:", project);
+        await saveProjectService(project);
       }
+
+      alert("Proceso finalizado. Mira la consola de Firebase.");
     };
 
     reader.readAsText(file);
@@ -171,9 +184,9 @@ function Project() {
       </div>
 
       <div className="projects-filtros">
-        {["Todos", "React", "Angular", "JS"].map((f) => (
+        {["Todos", "React", "Angular", "JS"].map((f, index) => (
           <button
-            key={f}
+            key={index}
             className={`filtro-btn ${filtro === f ? "activo" : ""}`}
             onClick={() => setFiltro(f)}
           >
@@ -183,14 +196,14 @@ function Project() {
       </div>
 
       <section className="projects-section">
-        {projectsFiltrados.map((project) => (
-          <div key={project.id} className="project-card">
+        {projectsFiltrados.map((project, index) => (
+          <div key={index} className="project-card">
             <h4 className="project-title">{project.title}</h4>
             <p className="project-description">{project.description}</p>
 
             <div className="project-tags">
-              {project.tags.split(',').map((tag) => (
-                <span key={tag} className="project-tag">{tag.trim()}</span>
+              {project.tags.split(',').map((tag, indexT) => (
+                <span key={indexT} className="project-tag">{tag.trim()}</span>
               ))}
             </div>
 

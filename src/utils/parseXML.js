@@ -2,7 +2,7 @@ export const parseXML = (text) => {
   const parser = new DOMParser();
   const xml = parser.parseFromString(text, "text/xml");
 
-  const items = xml.getElementsByTagName("item");
+  const items = xml.getElementsByTagName("project");
 
   let data = [];
 

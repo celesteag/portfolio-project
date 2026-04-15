@@ -1,14 +1,9 @@
 import { db } from "../firebase";
-import { ref, push, get } from "firebase/database";
+import { ref, push, get, update, remove } from "firebase/database";
 
 const baseRef = ref(db, "projects");
 
-export const saveProject = async (project) => {
-  await push(baseRef, project);
-};
-
 export const getProjectsOnce = async () => {
-  const baseRef = ref(db, "projects");
   const snapshot = await get(baseRef);
   
   if (!snapshot.exists()) return [];
@@ -19,3 +14,18 @@ export const getProjectsOnce = async () => {
     ...data[key]
   }));
 };
+
+export const saveProjectService = async (project) => {
+  await push(baseRef, project);
+};
+
+export const updateProjectService = async (id, project) => {
+  const projectRef = ref(db, `projects/${id}`);
+  await update(projectRef, project);
+};
+
+export const deleteProjectService = async (id) => {
+  const projectRef = ref(db, `projects/${id}`);
+  await remove(projectRef);
+};
+
