@@ -104,13 +104,11 @@ function Project() {
     const file = e.target.files[0];
     if (!file) return;
 
-    console.log("1. Archivo seleccionado:", file.name);
 
     const reader = new FileReader();
 
     reader.onload = async (event) => {
       const text = event.target.result;
-      console.log("2. Texto leído del archivo:", text.substring(0, 50) + "...");
 
       let data = [];
 
@@ -118,14 +116,11 @@ function Project() {
       if (file.name.endsWith(".csv")) data = parseCSV(text);
       if (file.name.endsWith(".xml")) data = parseXML(text);
 
-      console.log("3. Datos convertidos a objetos tibur:", data);
 
       for (let project of data) {
-        console.log("Proyecto actual tibur:", project);
         await saveProjectService(project);
       }
 
-      alert("Proceso finalizado. Mira la consola de Firebase.");
     };
 
     reader.readAsText(file);
