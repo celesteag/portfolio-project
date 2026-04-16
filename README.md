@@ -12,6 +12,21 @@ The news page includes a link to RSS feeds on web development and technology.
 [RSS Feed](./rss-screenshot-feeder.png)
 ---
 
+---
+
+## 📥 Import & Export (UT5 Requirements)
+This version includes a massive data management system synchronized with Firebase.
+
+### Sample Files for Import
+To test the import functionality, use these example files:
+* [Download projects.json](./public/examples/projects.json)
+* [Download projects.xml](./public/examples/projects.xml)
+* [Download projects.csv](./public/examples/projects.csv)
+
+### Features
+* **Massive Import:** Supports XML, JSON, and CSV file uploading via `FileReader` and custom parsers.
+* **Dynamic Export:** Generates downloadable files in real-time based on the current Firebase database state.
+
 ## Getting Started
 
 ### Prerequisites
@@ -44,11 +59,20 @@ portfolio-project/
 │   │   ├── about/
 |   |   ├── projects/
 │   │   └── contact/
+|   ├── services/
+|   |   └── dataService.js
 │   ├── data/
 |   |   ├── skills.js
 │   │   └── projects.js
 │   ├── styles/
 │   │   └── global.css
+│   ├── utils/
+│   │   ├── parseXML.js
+│   │   ├── parseCSV.js
+│   │   ├── parseJSON.js
+│   │   ├── exportXML.js
+│   │   ├── exportCSV.js
+│   │   └── exportJSON.js
 │   ├── App.jsx
 │   ├── index.css
 │   └── main.jsx
@@ -82,6 +106,11 @@ Info about TravelWeb's mission and what we offer.
 - Contact form
 - Interactive Leaflet map
 - Contact cards with Google Maps, email, and WhatsApp links
+
+### 🛠️ Data Architecture (UT5)
+* **Centralized Services:** All Firebase interactions (push, update, remove, get) are abstracted into `dataService.js`. This ensures the components remain "lean" and only handle UI logic.
+* **Async/Await Flow:** Uses asynchronous programming to handle database requests without blocking the main thread.
+* **Real-time Sync:** Uses Firebase `onValue` listeners to reflect imports and edits instantly across all connected clients.
 
 ---
 
@@ -121,12 +150,17 @@ Icons for social media, location, email, and phone.
 - `develop` - Development
 - `feature/first-delivery` - Development
 - `feature/second-delivery` - Development
+- `feature/third-delivery` - Development
+- `feature/import-and-export` - Merged into develop
 ```bash
 git checkout develop
 git add .
 git commit -m "your message"
 git push origin develop
 ```
+
+**Merge Flow:**
+`feature/import-and-export` ➔ `develop` ➔ `main`
 
 ---
 
@@ -179,3 +213,13 @@ Educational project - free to use.
 
 - info@devwebsolutions.com
 - Las Palmas
+
+---
+
+## Technical Architecture & Capabilities
+This project is structured to address the following core technical concepts:
+1. **Centralized Access:** Separation of services and components.
+2. **Asynchrony:** Use of `async/await` in data fetching.
+3. **Data Parsing:** Implementation of `DOMParser` for XML imports.
+4. **State Management:** How React reflects Firebase changes in real-time.
+5. **Dynamic Exporting:** How data is transformed from JSON to CSV/XML for the user.
