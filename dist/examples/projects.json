@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Proyecto JSON",
+    "description": "Importado desde formato JSON",
+    "tags": "React, JSON",
+    "repo": "https://github.com/ejemplo",
+    "demo": "https://demo.com"
+  },
+  {
+    "title": "Segunda App",
+    "description": "Otro ejemplo más",
+    "tags": "Vite, Firebase",
+    "repo": "https://github.com/ejemplo2",
+    "demo": ""
+  }
+]

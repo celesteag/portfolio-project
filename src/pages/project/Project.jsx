@@ -48,9 +48,9 @@ function Project() {
 
   const validate = () => {
     const newErrors = {};
-    if (!newProject.title.trim()) newErrors.title = "* El título es obligatorio";
-    if (!newProject.description.trim()) newErrors.description = "* La descripción es obligatoria";
-    if (!newProject.tags.trim()) newErrors.tags = "* Añade al menos un tag";
+    if (!newProject.title.trim()) newErrors.title = "El título es obligatorio";
+    if (!newProject.description.trim()) newErrors.description = "La descripción es obligatoria";
+    if (!newProject.tags.trim()) newErrors.tags = "Añade al menos un tag";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };

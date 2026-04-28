@@ -1,0 +1,9 @@
+<projects>
+  <project>
+    <title>Proyecto de Prueba</title>
+    <description>Este es un proyecto importado desde XML</description>
+    <tags>XML, Firebase</tags>
+    <repo>https://github.com</repo>
+    <demo>https://demo.com</demo>
+  </project>
+</projects>
