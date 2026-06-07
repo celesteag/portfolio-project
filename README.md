@@ -172,10 +172,3 @@ Based on the Interactive Portfolio Dark Theme Figma template for the UI/UX and c
 ## License
 
 Educational project - free to use.
-
----
-
-## Contact
-
-- info@devwebsolutions.com
-- Las Palmas
